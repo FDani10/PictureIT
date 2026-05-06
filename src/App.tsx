@@ -143,11 +143,23 @@ export default function PictureIT() {
           ctx.fillText(t.text, actualX, actualY);
         });
       }
-      const link = document.createElement('a');
-      link.download = 'PictureIT-szerkesztett.png';
-      link.href = canvas.toDataURL('image/png');
-      link.click();
+      
+      canvas.toBlob((blob) => {
+        if (!blob) return;
+        
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.download = 'PictureIT-szerkesztett.png';
+        link.href = url;
+        
+        document.body.appendChild(link);
+        link.click();
+        
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(url), 1000); 
+      }, 'image/png', 1.0);
     };
+    
     imgObj.src = image;
   };
 
