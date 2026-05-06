@@ -99,7 +99,10 @@ export default function PictureIT() {
   };
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) processFile(e.target.files[0]);
+    if (e.target.files && e.target.files[0]) {
+      processFile(e.target.files[0]);
+    }
+    e.target.value = ''; 
   };
 
   const handleDragOver = (e: DragEvent<HTMLDivElement>) => { e.preventDefault(); setIsDragOver(true); };
