@@ -247,7 +247,7 @@ export default function PictureIT() {
             </div>
           )}
 
-          {/* --- SZÖVEG FÜL (Változatlan) --- */}
+          {/* --- SZÖVEG FÜL --- */}
           {activeTool === 'text' && (
             <div className="panel-section">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
